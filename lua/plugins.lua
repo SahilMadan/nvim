@@ -62,5 +62,7 @@ return require('packer').startup(function()
       'kyazdani42/nvim-web-devicons'
     }
   }
-end)
 
+  -- Commenting text in/out
+  use {'b3nj5m1n/kommentary'}
+end)
