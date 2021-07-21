@@ -14,6 +14,8 @@ set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 " Show filenumbers
 set number
 
+set termguicolors
+
 lua require('plugins')
 lua require('treesitter-setup')
 lua require('lsp-setup')
@@ -33,3 +35,11 @@ inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+" Example config in VimScript
+let g:tokyonight_style = "night"
+let g:tokyonight_italic_functions = 1
+let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+
+" Load the colorscheme
+colorscheme tokyonight

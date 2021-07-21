@@ -37,5 +37,22 @@ return require('packer').startup(function()
       'nvim-lua/plenary.nvim'
     },
   }
+
+  -- Color highlighter
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require'colorizer'.setup{
+       'css';
+       'javascript';
+        html = {
+          mode = 'foreground';
+        }
+      }
+    end
+  }
+
+  -- Colorscheme: Tokyo Night
+  use {'folke/tokyonight.nvim'}
 end)
 
