@@ -54,5 +54,13 @@ return require('packer').startup(function()
 
   -- Colorscheme: Tokyo Night
   use {'folke/tokyonight.nvim'}
+
+  -- Tabline
+  use {
+    'romgrk/barbar.nvim',
+    requires = {
+      'kyazdani42/nvim-web-devicons'
+    }
+  }
 end)
 
