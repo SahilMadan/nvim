@@ -29,5 +29,13 @@ return require('packer').startup(function()
   --    -- some optional icons
   --    requires = {'kyazdani42/nvim-web-devicons', opt = true}
   --  }
+  
+  -- Git Integration
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+  }
 end)
 
