@@ -18,7 +18,6 @@ set termguicolors
 
 lua require('plugins')
 lua require('compe-setup')
-lua require('galaxyline-setup')
 
 " Example config in VimScript
 let g:tokyonight_style = "night"
