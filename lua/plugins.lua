@@ -65,7 +65,10 @@ return require('packer').startup(function()
   }
 
   -- Commenting text in/out
-  use {'b3nj5m1n/kommentary'}
+  use {
+    'b3nj5m1n/kommentary',
+    config = require'plugins.kommentary'
+  }
 
   -- Indent highlighting
   use {
