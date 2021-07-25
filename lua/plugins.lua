@@ -16,7 +16,10 @@ return require('packer').startup(function()
   }
 
   -- General language config neovim's built-in lsp
-  use {'neovim/nvim-lspconfig'}
+  use {
+    'neovim/nvim-lspconfig',
+    config = require'plugins.nvim-lspconfig'
+  }
 
   -- Autocompletion
   use {'hrsh7th/nvim-compe'}
