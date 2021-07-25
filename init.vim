@@ -17,7 +17,6 @@ set number
 set termguicolors
 
 lua require('plugins')
-lua require('treesitter-setup')
 lua require('compe-setup')
 lua require('galaxyline-setup')
 

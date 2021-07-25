@@ -12,13 +12,14 @@ return require('packer').startup(function()
   -- Treesitter: Prettier highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    run = ':TSUpdate',
+    config = require'plugins.treesitter'
   }
 
   -- General language config neovim's built-in lsp
   use {
     'neovim/nvim-lspconfig',
-    config = require'plugins.nvim-lspconfig'
+    config = require'plugins.lspconfig'
   }
 
   -- Autocompletion
