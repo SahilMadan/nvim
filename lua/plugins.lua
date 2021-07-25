@@ -65,4 +65,10 @@ return require('packer').startup(function()
 
   -- Commenting text in/out
   use {'b3nj5m1n/kommentary'}
+
+  -- Indent highlighting
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = require'plugins.indent-blankline'
+  }
 end)
