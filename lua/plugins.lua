@@ -5,7 +5,8 @@ return require('packer').startup(function()
   -- Fuzzy search
   use {
     'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+    config = require'plugins.telescope'
   }
 
   -- Treesitter: Prettier highlighting
