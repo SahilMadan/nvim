@@ -23,7 +23,6 @@ lua require('compe-setup')
 lua require('galaxyline-setup')
 lua require('gitsigns-setup')
 lua require('kommentary-setup')
-lua require('barbar-setup')
 lua require('telescope-setup')
 
 " Example config in VimScript
