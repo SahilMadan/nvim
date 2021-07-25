@@ -23,6 +23,7 @@ lua require('compe-setup')
 lua require('galaxyline-setup')
 lua require('gitsigns-setup')
 lua require('kommentary-setup')
+lua require('barbar-setup')
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
