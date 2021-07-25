@@ -21,7 +21,6 @@ lua require('treesitter-setup')
 lua require('lsp-setup')
 lua require('compe-setup')
 lua require('galaxyline-setup')
-lua require('gitsigns-setup')
 
 " Example config in VimScript
 let g:tokyonight_style = "night"
