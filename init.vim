@@ -16,7 +16,7 @@ set number
 
 set termguicolors
 
-lua require('plugins')
+lua require('init-plugins')
 
 " Example config in VimScript
 let g:tokyonight_style = "night"
