@@ -74,4 +74,13 @@ return require('packer').startup(function()
     'lukas-reineke/indent-blankline.nvim',
     config = require'plugins.indent-blankline'
   }
+
+  -- File Explorer
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons'
+    },
+    config = require'plugins.nvim-tree'
+  }
 end)
