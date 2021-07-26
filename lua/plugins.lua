@@ -23,7 +23,10 @@ return require('packer').startup(function()
   }
 
   -- Autocompletion
-  use {'hrsh7th/nvim-compe'}
+  use {
+    'hrsh7th/nvim-compe',
+    config = require'plugins.compe'
+  }
 
   -- Git Integration
   use {
