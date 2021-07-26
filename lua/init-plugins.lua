@@ -72,6 +72,7 @@ return require('packer').startup(function()
   -- Indent highlighting
   use {
     'lukas-reineke/indent-blankline.nvim',
+    event = 'BufRead',
     config = require'plugins.indent-blankline'
   }
 
