@@ -12,6 +12,7 @@ return require('packer').startup(function()
   -- Treesitter: Prettier highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
+    branch = '0.5-compat',
     run = ':TSUpdate',
     config = require'plugins.treesitter'
   }
