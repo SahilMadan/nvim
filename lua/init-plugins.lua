@@ -70,13 +70,6 @@ return require('packer').startup(function()
     config = require'plugin.kommentary'
   }
 
-  -- Indent highlighting
-  use {
-    'lukas-reineke/indent-blankline.nvim',
-    event = 'BufRead',
-    config = require'plugin.indent-blankline'
-  }
-
   -- File Explorer
   use {
     'kyazdani42/nvim-tree.lua',
