@@ -6,7 +6,7 @@ return require('packer').startup(function()
   use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
-    config = require'plugins.telescope'
+    config = require'plugin.telescope'
   }
 
   -- Treesitter: Prettier highlighting
@@ -14,19 +14,19 @@ return require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     branch = '0.5-compat',
     run = ':TSUpdate',
-    config = require'plugins.treesitter'
+    config = require'plugin.treesitter'
   }
 
   -- General language config neovim's built-in lsp
   use {
     'neovim/nvim-lspconfig',
-    config = require'plugins.lspconfig'
+    config = require'plugin.lspconfig'
   }
 
   -- Autocompletion
   use {
     'hrsh7th/nvim-compe',
-    config = require'plugins.compe'
+    config = require'plugin.compe'
   }
 
   -- Git Integration
@@ -35,7 +35,7 @@ return require('packer').startup(function()
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = require'plugins.gitsigns'
+    config = require'plugin.gitsigns'
   }
 
   -- Color highlighter
@@ -61,20 +61,20 @@ return require('packer').startup(function()
     requires = {
       'kyazdani42/nvim-web-devicons'
     },
-    config = require'plugins.barbar'
+    config = require'plugin.barbar'
   }
 
   -- Commenting text in/out
   use {
     'b3nj5m1n/kommentary',
-    config = require'plugins.kommentary'
+    config = require'plugin.kommentary'
   }
 
   -- Indent highlighting
   use {
     'lukas-reineke/indent-blankline.nvim',
     event = 'BufRead',
-    config = require'plugins.indent-blankline'
+    config = require'plugin.indent-blankline'
   }
 
   -- File Explorer
@@ -83,6 +83,6 @@ return require('packer').startup(function()
     requires = {
       'kyazdani42/nvim-web-devicons'
     },
-    config = require'plugins.nvim-tree'
+    config = require'plugin.nvim-tree'
   }
 end)
