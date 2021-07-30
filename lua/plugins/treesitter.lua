@@ -1,4 +1,9 @@
-require'nvim-treesitter.configs'.setup {
+local present, ts_config = pcall(require, "nvim-treesitter.configs")
+if not present then
+    return
+end
+
+ts_config.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = { }, -- List of parsers to ignore installing
   highlight = {
