@@ -78,4 +78,7 @@ return require('packer').startup(function()
     },
     config = require'plugin.nvim-tree'
   }
+
+  -- Support for Zig programming language 
+  use { 'ziglang/zig.vim'}
 end)
