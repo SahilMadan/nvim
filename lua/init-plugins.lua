@@ -81,4 +81,8 @@ return require('packer').startup(function()
 
   -- Support for Zig programming language 
   use { 'ziglang/zig.vim'}
+
+  -- Snippets
+  use {'hrsh7th/vim-vsnip'}
+  use {'hrsh7th/vim-vsnip-integ'}
 end)
