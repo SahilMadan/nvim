@@ -17,24 +17,23 @@ return {
       { "nvim-lua/plenary.nvim" },
     },
     opts = {
-      border = "rounded",
-      -- This is still useful for general chat context
-      context = "buffers",
+      auto_insert_mode = true,
+      debug = true,
+
+      selection = function(source)
+          local select = require("CopilotChat.select")
+          return select.visual(source) or select.buffer(source)
+      end
     },
-    config = function(_, opts)
-      local chat = require("CopilotChat")
-      chat.setup(opts)
 
-      -- General chat commands
-      vim.keymap.set("n", "<leader>cc", "<cmd>CopilotChat<CR>", { desc = "CopilotChat - Open" })
-      vim.keymap.set("n", "<leader>cq", "<cmd>CopilotChat q<CR>", { desc = "CopilotChat - Quick chat" })
-
-      -- THE FIX: Use dedicated commands for actions on the current buffer
-      vim.keymap.set("n", "<leader>ce", "<cmd>CopilotChatBuffer explain<CR>", { desc = "CopilotChat - Explain buffer" })
-      vim.keymap.set("n", "<leader>ct", "<cmd>CopilotChatBuffer tests<CR>", { desc = "CopilotChat - Generate tests for buffer" })
-
-      -- THE FIX: Use dedicated command for actions on a visual selection
-      vim.keymap.set("v", "<leader>ce", "<cmd>CopilotChatVisual explain<CR>", { desc = "CopilotChat - Explain selection" })
-    end,
+    keys = {
+      { "cc", mode = { "n", "v" }, "<Cmd>CopilotChat<CR>",       desc = "Open Copilot Chat" },
+      { "ce", mode = { "n", "v" }, "<Cmd>CopilotChatExplain<CR>", desc = "Explain this code" },
+      { "cf", mode = { "n", "v" }, "<Cmd>CopilotChatFix<CR>",    desc = "Fix this code" },
+      { "cm", mode = { "n", "v" }, "<Cmd>CopilotChatModels<CR>", desc = "List Copilot Chat models" },
+      { "cp", mode = { "n", "v" }, "<Cmd>CopilotChatPrompts<CR>", desc = "List Copilot Chat prompts" },
+      { "cr", mode = { "n", "v" }, "<Cmd>CopilotChatReview<CR>", desc = "Review this code" },
+      { "ct", mode = { "n", "v" }, "<Cmd>CopilotChatTest<CR>",   desc = "Write tests for this code" },
+    }
   },
 }
