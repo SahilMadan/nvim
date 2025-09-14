@@ -1,6 +1,7 @@
 return {
   {
     "folke/tokyonight.nvim",
+    enabled = false,
     lazy = false, -- make sure the theme is loaded during startup
     priority = 1000, -- load before all other plugins
     opts = {
