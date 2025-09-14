@@ -19,7 +19,7 @@ return {
     opts = {
       auto_insert_mode = true,
       debug = true,
-      model = 'Claude Sonnet 4',
+      model = 'claude-sonnet-4',
 
       selection = function(source)
           local select = require("CopilotChat.select")
