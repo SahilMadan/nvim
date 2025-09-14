@@ -31,7 +31,7 @@ return {
       vim.keymap.set("n", "<leader>cq", "<cmd>CopilotChat q<CR>", { desc = "CopilotChat - Quick chat" })
 
       -- THE FIX (Part 2): Update specific commands to target the current buffer
-      vim.keymap.set("n", "<leader>ce", "<cmd>CopilotChat explain #buffer<CR>", { desc = "CopilotChat - Explain code" })
+      vim.keymap.set("n", "<leader>ce", "<cmd>CopilotChat explain #cursor<CR>", { desc = "CopilotChat - Explain code" })
       vim.keymap.set("n", "<leader>ct", "<cmd>CopilotChat tests #buffer<CR>", { desc = "CopilotChat - Generate tests" })
     end,
   },
