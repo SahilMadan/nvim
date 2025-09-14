@@ -28,13 +28,13 @@ return {
     },
 
     keys = {
-      { "cc", mode = { "n", "v" }, "<Cmd>CopilotChat<CR>",       desc = "Open Copilot Chat" },
-      { "ce", mode = { "n", "v" }, "<Cmd>CopilotChatExplain<CR>", desc = "Explain this code" },
-      { "cf", mode = { "n", "v" }, "<Cmd>CopilotChatFix<CR>",    desc = "Fix this code" },
-      { "cm", mode = { "n", "v" }, "<Cmd>CopilotChatModels<CR>", desc = "List Copilot Chat models" },
-      { "cp", mode = { "n", "v" }, "<Cmd>CopilotChatPrompts<CR>", desc = "List Copilot Chat prompts" },
-      { "cr", mode = { "n", "v" }, "<Cmd>CopilotChatReview<CR>", desc = "Review this code" },
-      { "ct", mode = { "n", "v" }, "<Cmd>CopilotChatTest<CR>",   desc = "Write tests for this code" },
+      { "<leader>cc", mode = { "n", "v" }, "<Cmd>CopilotChat<CR>",       desc = "Open Copilot Chat" },
+      { "<leader>ce", mode = { "n", "v" }, "<Cmd>CopilotChatExplain<CR>", desc = "Explain this code" },
+      { "<leader>cf", mode = { "n", "v" }, "<Cmd>CopilotChatFix<CR>",    desc = "Fix this code" },
+      { "<leader>cm", mode = { "n", "v" }, "<Cmd>CopilotChatModels<CR>", desc = "List Copilot Chat models" },
+      { "<leader>cp", mode = { "n", "v" }, "<Cmd>CopilotChatPrompts<CR>", desc = "List Copilot Chat prompts" },
+      { "<leader>cr", mode = { "n", "v" }, "<Cmd>CopilotChatReview<CR>", desc = "Review this code" },
+      { "<leader>ct", mode = { "n", "v" }, "<Cmd>CopilotChatTest<CR>",   desc = "Write tests for this code" },
     }
   },
 }

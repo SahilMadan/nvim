@@ -7,7 +7,7 @@ return {
     opts = {
       -- The default flavor is "latte"
       -- Other options are "frappe", "macchiato", "mocha"
-      flavor = "mocha",
+      flavor = "macchiato",
 
       -- Enable this to have a transparent background
       transparent_background = true,
