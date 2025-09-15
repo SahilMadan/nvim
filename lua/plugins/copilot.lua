@@ -5,7 +5,10 @@ return {
     event = "VimEnter",
     config = function()
       vim.g.copilot_no_tab_map = true
+      -- Windows
       vim.api.nvim_set_keymap("i", "<C-_>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+      -- Linux
+      vim.api.nvim_set_keymap("i", "<C-/>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
     end,
   },
 
