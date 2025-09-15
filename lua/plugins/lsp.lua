@@ -17,6 +17,9 @@ return {
 
       -- Pictograms for suggestions
       "onsails/lspkind.nvim",
+
+      -- Modify formatted lines
+      "joechrisellis/lsp-format-modifications.nvim",
     },
     config = function()
       local cmp = require("cmp")
@@ -43,8 +46,8 @@ return {
         -- 1. Updated sources with priority
         sources = cmp.config.sources({
           { name = "nvim_lsp", priority = 10 },
-          { name = "luasnip", priority = 8 },
-          { name = "buffer", priority = 6 },
+          { name = "luasnip",  priority = 8 },
+          { name = "buffer",   priority = 6 },
         }),
         -- 2. Added intelligent sorting
         sorting = {
@@ -77,8 +80,11 @@ return {
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
         vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "<leader>f", function()
+        vim.keymap.set("n", "<leader>fd", function()
           vim.lsp.buf.format({ async = true })
+        end, opts)
+        vim.keymap.set("n", "<leader>fm", function()
+          require("lsp-format-modifications").format_modifications(client, bufnr)
         end, opts)
       end
 
