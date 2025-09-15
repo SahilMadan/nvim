@@ -5,8 +5,21 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   keys = {
-    -- Your keymap to toggle NvimTree
-    { "<C-n>", "<cmd>NvimTreeToggle<cr>", desc = "Toggle File Explorer" },
+    {
+      "<C-n>",
+      function()
+        -- Check if a file is open and saved to disk
+        local current_file = vim.fn.expand('%')
+        if current_file ~= '' and vim.fn.filereadable(current_file) == 1 then
+          -- If a file is open, use NvimTreeFindFile to reveal it
+          vim.cmd("NvimTreeFindFile")
+        else
+          -- If no file is open, just toggle the tree at the CWD
+          vim.cmd("NvimTreeToggle")
+        end
+      end,
+      desc = "Toggle File Explorer (smart)",
+    },
   },
   opts = {
     -- Disable the default netrw file explorer
