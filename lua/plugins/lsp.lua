@@ -14,20 +14,23 @@ return {
       -- Snippet engine
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
+
+      -- Pictograms for suggestions
+      "onsails/lspkind.nvim",
     },
     config = function()
       local cmp = require("cmp")
       local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local lspkind = require("lspkind")
 
       -- This is the list of servers you want to use
       local servers = { "clangd", "lua_ls" }
 
-      -- Set up nvim-cmp
       cmp.setup({
         snippet = {
           expand = function(args)
-            require("luasnip").lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
           end,
         },
         mapping = cmp.mapping.preset.insert({
@@ -37,11 +40,33 @@ return {
           ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
+        -- 1. Updated sources with priority
         sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-          { name = "buffer" },
+          { name = "nvim_lsp", priority = 10 },
+          { name = "luasnip", priority = 8 },
+          { name = "buffer", priority = 6 },
         }),
+        -- 2. Added intelligent sorting
+        sorting = {
+          comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+          },
+        },
+        -- 3. (Optional) Added formatting for icons
+        formatting = {
+          format = lspkind.cmp_format({
+            mode = "symbol",       -- show only symbol annotations
+            maxwidth = 50,         -- prevent the popup from becoming too wide
+            ellipsis_char = "...", -- when popup is too wide
+          }),
+        },
       })
 
       -- This function runs for each LSP server
