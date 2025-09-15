@@ -90,10 +90,18 @@ return {
 
       -- Explicitly loop through servers to set them up
       for _, server_name in ipairs(servers) do
+        if server_name == "clangd" then
         lspconfig[server_name].setup({
           on_attach = on_attach,
           capabilities = capabilities,
+            cmd = { "clangd", "--fallback-style=Google" },
         })
+        else
+          lspconfig[server_name].setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+          })
+        end
       end
     end,
   },
