@@ -1,5 +1,5 @@
 return {
-  -- GitHub Copilot
+  -- GitHub Copilot (still required)
   {
     "github/copilot.vim",
     event = "VimEnter",
@@ -9,32 +9,29 @@ return {
     end,
   },
 
-  -- Copilot Chat
+  -- CodeCompanion from olimorris
   {
-    "CopilotC-Nvim/CopilotChat.nvim",
+    "olimorris/codecompanion.nvim",
     dependencies = {
-      { "github/copilot.vim" },
-      { "nvim-lua/plenary.nvim" },
+      "nvim-lua/plenary.nvim",
     },
     opts = {
-      auto_insert_mode = true,
-      debug = true,
-      model = 'claude-sonnet-4',
-
-      selection = function(source)
-          local select = require("CopilotChat.select")
-          return select.visual(source) or select.buffer(source)
-      end
+      -- To use a model like 'claude-sonnet-4', you must configure
+      -- a provider here. The default is 'copilot'.
+      -- providers = {
+      --   openai = { ... },
+      -- }
     },
-
     keys = {
-      { "<leader>cc", mode = { "n", "v" }, "<Cmd>CopilotChat<CR>",       desc = "Open Copilot Chat" },
-      { "<leader>ce", mode = { "n", "v" }, "<Cmd>CopilotChatExplain<CR>", desc = "Explain this code" },
-      { "<leader>cf", mode = { "n", "v" }, "<Cmd>CopilotChatFix<CR>",    desc = "Fix this code" },
-      { "<leader>cm", mode = { "n", "v" }, "<Cmd>CopilotChatModels<CR>", desc = "List Copilot Chat models" },
-      { "<leader>cp", mode = { "n", "v" }, "<Cmd>CopilotChatPrompts<CR>", desc = "List Copilot Chat prompts" },
-      { "<leader>cr", mode = { "n", "v" }, "<Cmd>CopilotChatReview<CR>", desc = "Review this code" },
-      { "<leader>ct", mode = { "n", "v" }, "<Cmd>CopilotChatTest<CR>",   desc = "Write tests for this code" },
-    }
+      -- Toggles the chat window
+      { "<leader>cc", mode = { "n", "v" }, function() require("codecompanion").toggle() end,              desc = "Companion: Toggle" },
+      -- Runs a specific prompt on the visual selection
+      { "<leader>ce", mode = { "v" }, function() require("codecompanion").prompt({ prompt = "Explain" }) end, desc = "Companion: Explain" },
+      { "<leader>cf", mode = { "v" }, function() require("codecompanion").prompt({ prompt = "Fix" }) end,     desc = "Companion: Fix" },
+      { "<leader>cr", mode = { "v" }, function() require("codecompanion").prompt({ prompt = "Review" }) end,  desc = "Companion: Review" },
+      { "<leader>ct", mode = { "v" }, function() require("codecompanion").prompt({ prompt = "Tests" }) end,    desc = "Companion: Tests" },
+      -- Lists available prompts via Telescope
+      { "<leader>cp", mode = { "n" }, "<Cmd>Telescope codecompanion prompts<CR>",                           desc = "Companion: Prompts" },
+    },
   },
 }
